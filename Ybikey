@@ -2,3 +2,5 @@ k() { eval $(/usr/bin/keychain -q —eval —agents ssh id_rsa); }
 yl() { ssh-add -s /usr/lib/x86_64-linux-gnu/libykcs11.so -t 10800 < /dev/null; } # подгрузить юбикей макс. на 3 часа
 yu() { ssh-add -e /usr/lib/x86_64-linux-gnu/libykcs11.so 2>/dev/null; }
 y() { k; yu; yl; } # основной алиас. юзать, когда ssh не срабатывает (после перевтыкания юбикея, например)
+p() { curl wttr.in; }
+multi() { gpg —decrypt-files /home/achesnokov/multi/*.pgp; grep -E "NAME|SIZE|CODE" /home/achesnokov/multi/*; rm -f /home/achesnokov/multi/*; }
